@@ -1,6 +1,7 @@
 module DateFormat exposing
     ( format
-    , Language(..), formatI18n
+    , formatI18n
+    , Language, english, french, spanish, dutch, finnish, greek, italian, norwegian, portuguese, swedish, german, russian
     )
 
 {-| DateFormat
@@ -13,9 +14,14 @@ Inspired by C# Date formatting
 @docs format
 
 
-# i18n
+# formatI18n
 
-@docs Language, formatI18n
+@docs formatI18n
+
+
+# Languages
+
+@docs Language, english, french, spanish, dutch, finnish, greek, italian, norwegian, portuguese, swedish, german, russian
 
 
 # Specifiers
@@ -46,9 +52,18 @@ Inspired by C# Date formatting
 
 -}
 
+import I18n.Dutch as Dutch
 import I18n.English as English
+import I18n.Finnish as Finnish
 import I18n.French as French
+import I18n.German as German
+import I18n.Greek as Greek
+import I18n.Italian as Italian
+import I18n.Norwegian as Norwegian
+import I18n.Portuguese as Portuguese
+import I18n.Russian as Russian
 import I18n.Spanish as Spanish
+import I18n.Swedish as Swedish
 import Time exposing (Month(..), Posix, Weekday(..), Zone)
 
 
@@ -58,6 +73,99 @@ type Language
     = English
     | French
     | Spanish
+    | Dutch
+    | Finnish
+    | Greek
+    | Italian
+    | Norwegian
+    | Portuguese
+    | Swedish
+    | German
+    | Russian
+
+
+{-| English
+-}
+english : Language
+english =
+    English
+
+
+{-| English
+-}
+french : Language
+french =
+    French
+
+
+{-| English
+-}
+spanish : Language
+spanish =
+    Spanish
+
+
+{-| English
+-}
+dutch : Language
+dutch =
+    Dutch
+
+
+{-| English
+-}
+finnish : Language
+finnish =
+    Finnish
+
+
+{-| English
+-}
+greek : Language
+greek =
+    Greek
+
+
+{-| English
+-}
+italian : Language
+italian =
+    Italian
+
+
+{-| English
+-}
+norwegian : Language
+norwegian =
+    Norwegian
+
+
+{-| English
+-}
+portuguese : Language
+portuguese =
+    Portuguese
+
+
+{-| English
+-}
+swedish : Language
+swedish =
+    Swedish
+
+
+{-| English
+-}
+german : Language
+german =
+    German
+
+
+{-| English
+-}
+russian : Language
+russian =
+    Russian
 
 
 type StringFormat
@@ -89,10 +197,10 @@ format fmt zone time =
 
     Only applies to weekdays and months
 
-    formatI18n French "dddd, dd MMMM yyyy" Time.utc (Time.millisToPosix 1575021804192)
+    formatI18n french "dddd, dd MMMM yyyy" Time.utc (Time.millisToPosix 1575021804192)
     == "Vendredi, 29 Novembre 2019"
 
-    formatI18n Spanish "dddd, dd MMMM yyyy HH:mm:ss" Time.utc (Time.millisToPosix 1575021804192)
+    formatI18n spanish "dddd, dd MMMM yyyy HH:mm:ss" Time.utc (Time.millisToPosix 1575021804192)
     == "Viernes, 29 Noviembre 2019 10:03:24"
 
 -}
@@ -246,6 +354,33 @@ monthToString lang fmt month =
 
                 Spanish ->
                     Spanish.month month
+
+                Dutch ->
+                    Dutch.month month
+
+                Finnish ->
+                    Finnish.month month
+
+                Greek ->
+                    Greek.month month
+
+                Italian ->
+                    Italian.month month
+
+                Norwegian ->
+                    Norwegian.month month
+
+                Portuguese ->
+                    Portuguese.month month
+
+                Swedish ->
+                    Swedish.month month
+
+                German ->
+                    German.month month
+
+                Russian ->
+                    Russian.month month
     in
     case fmt of
         Abbreviated ->
@@ -312,6 +447,33 @@ weekdayToString lang fmt weekday =
 
                 Spanish ->
                     Spanish.weekday weekday
+
+                Dutch ->
+                    Dutch.weekday weekday
+
+                Finnish ->
+                    Finnish.weekday weekday
+
+                Greek ->
+                    Greek.weekday weekday
+
+                Italian ->
+                    Italian.weekday weekday
+
+                Norwegian ->
+                    Norwegian.weekday weekday
+
+                Portuguese ->
+                    Portuguese.weekday weekday
+
+                Swedish ->
+                    Swedish.weekday weekday
+
+                German ->
+                    German.weekday weekday
+
+                Russian ->
+                    Russian.weekday weekday
     in
     case fmt of
         Abbreviated ->

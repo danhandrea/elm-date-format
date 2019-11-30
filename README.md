@@ -2,7 +2,9 @@
 
 Format elm time
 
-## format
+2.0.0 - Refactored so that by adding languages won't force MAJOR version
+
+## Format
 
 ```elm
 format "MM/dd/yyyy" Time.utc (Time.millisToPosix 1575021804192)
@@ -49,19 +51,28 @@ format "hh:mm tt" Time.utc (Time.millisToPosix 1575021804192)
 ## formatI18n
 
 ```elm
-formatI18n French "dddd, dd MMMM yyyy" Time.utc (Time.millisToPosix 1575021804192)
+formatI18n french "dddd, dd MMMM yyyy" Time.utc (Time.millisToPosix 1575021804192)
 == "Vendredi, 29 Novembre 2019"
 
-formatI18n Spanish "dddd, dd MMMM yyyy HH:mm:ss" Time.utc (Time.millisToPosix 1575021804192)
+formatI18n spanish "dddd, dd MMMM yyyy HH:mm:ss" Time.utc (Time.millisToPosix 1575021804192)
 == "Viernes, 29 Noviembre 2019 10:03:24"
 ```
 ## Languages
 
-Currently only supporting:
+Currently supporting:
 ```elm
 - English - default
 - French
 - Spanish
+- Dutch
+- Finnish
+- Greek
+- Italian
+- Norwegian
+- Portuguese
+- Swedish
+- German
+- Russian
 ```
 
 Will add additional languages on request/the way.
