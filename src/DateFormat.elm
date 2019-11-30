@@ -14,16 +14,6 @@ Inspired by C# Date formatting
 @docs format
 
 
-# formatI18n
-
-@docs formatI18n
-
-
-# Languages
-
-@docs Language, english, french, spanish, dutch, finnish, greek, italian, norwegian, portuguese, swedish, german, russian
-
-
 # Specifiers
 
     "d"     - The day of the month, from 1 through 31.
@@ -49,6 +39,16 @@ Inspired by C# Date formatting
     "f"     - The tenths of a second in a date and time value.
     "ff"    - The hundredths of a second in a date and time value.
     "fff"   - The milliseconds in a date and time value.
+
+
+# formatI18n
+
+@docs formatI18n
+
+
+# Languages
+
+@docs Language, english, french, spanish, dutch, finnish, greek, italian, norwegian, portuguese, swedish, german, russian
 
 -}
 
@@ -91,77 +91,77 @@ english =
     English
 
 
-{-| English
+{-| French
 -}
 french : Language
 french =
     French
 
 
-{-| English
+{-| Spanish
 -}
 spanish : Language
 spanish =
     Spanish
 
 
-{-| English
+{-| Dutch
 -}
 dutch : Language
 dutch =
     Dutch
 
 
-{-| English
+{-| Finnish
 -}
 finnish : Language
 finnish =
     Finnish
 
 
-{-| English
+{-| Greek
 -}
 greek : Language
 greek =
     Greek
 
 
-{-| English
+{-| Italian
 -}
 italian : Language
 italian =
     Italian
 
 
-{-| English
+{-| Norwegian
 -}
 norwegian : Language
 norwegian =
     Norwegian
 
 
-{-| English
+{-| Portuguese
 -}
 portuguese : Language
 portuguese =
     Portuguese
 
 
-{-| English
+{-| Swedish
 -}
 swedish : Language
 swedish =
     Swedish
 
 
-{-| English
+{-| German
 -}
 german : Language
 german =
     German
 
 
-{-| English
+{-| Russian
 -}
 russian : Language
 russian =
