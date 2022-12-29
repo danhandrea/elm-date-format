@@ -248,12 +248,12 @@ formatPart zone time lang part =
 
         "h" ->
             Time.toHour zone time
-                |> modBy 12
+                |> toNonMilitary
                 |> String.fromInt
 
         "hh" ->
             Time.toHour zone time
-                |> modBy 12
+                |> toNonMilitary
                 |> stringPadLeft20
 
         "H" ->
