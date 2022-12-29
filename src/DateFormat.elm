@@ -173,6 +173,8 @@ type StringFormat
     | Full
 
 
+
+
 {-| format posix date and zone using a string format
 
     format "MM/dd/yyyy" Time.utc (Time.millisToPosix 1575021804192)
@@ -214,6 +216,12 @@ formatI18n lang fmt zone time =
         |> String.concat
 
 
+hoursToNonMilitary : Int -> Int
+hoursToNonMilitary hours =
+    if hours == 12 then 
+        12
+    else modBy 12 hours
+
 formatPart : Zone -> Posix -> Language -> String -> String
 formatPart zone time lang part =
     let
@@ -248,12 +256,12 @@ formatPart zone time lang part =
 
         "h" ->
             Time.toHour zone time
-                |> toNonMilitary
+                |> hoursToNonMilitary
                 |> String.fromInt
 
         "hh" ->
             Time.toHour zone time
-                |> toNonMilitary
+                |> hoursToNonMilitary
                 |> stringPadLeft20
 
         "H" ->
@@ -299,14 +307,14 @@ formatPart zone time lang part =
                 |> stringPadLeft20
 
         "t" ->
-            if Time.toHour zone time <= 12 then
+            if Time.toHour zone time < 12 then
                 "A"
 
             else
                 "P"
 
         "tt" ->
-            if Time.toHour zone time <= 12 then
+            if Time.toHour zone time < 12 then
                 "AM"
 
             else
@@ -339,6 +347,7 @@ formatPart zone time lang part =
 
 
 -- MONTH
+
 
 
 monthToString : Language -> StringFormat -> Month -> String
