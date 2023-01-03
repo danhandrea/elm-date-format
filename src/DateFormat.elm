@@ -228,6 +228,9 @@ formatPart zone time lang part =
                 |> String.split ""
                 |> List.take n
                 |> String.concat
+
+        to12hour n = if n == 12 then 12 else modBy 12 n
+
     in
     case part of
         "d" ->
@@ -248,12 +251,12 @@ formatPart zone time lang part =
 
         "h" ->
             Time.toHour zone time
-                |> modBy 12
+                |> to12hour
                 |> String.fromInt
 
         "hh" ->
             Time.toHour zone time
-                |> modBy 12
+                |> to12hour
                 |> stringPadLeft20
 
         "H" ->
@@ -299,14 +302,14 @@ formatPart zone time lang part =
                 |> stringPadLeft20
 
         "t" ->
-            if Time.toHour zone time <= 12 then
+            if Time.toHour zone time < 12 then
                 "A"
 
             else
                 "P"
 
         "tt" ->
-            if Time.toHour zone time <= 12 then
+            if Time.toHour zone time < 12 then
                 "AM"
 
             else
