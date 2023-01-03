@@ -229,8 +229,12 @@ formatPart zone time lang part =
                 |> List.take n
                 |> String.concat
 
-        to12hour n = if n == 12 then 12 else modBy 12 n
+        to12hour n =
+            if n == 12 then
+                12
 
+            else
+                modBy 12 n
     in
     case part of
         "d" ->
